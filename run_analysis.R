@@ -14,8 +14,10 @@ test_Data <- do.call(cbind,lapply(b, read.table))
 #将两个数据合并在一个dataset#
 dataset <- rbind(train_Data, test_Data)
 #返回所有列的平均值
-colMeans(train_Data)
-colMeans(test_Data)
+apply(train_Data, 1, mean)
+apply(train_Data, 1, std)
+apply(test_Data, 1, mean)
+apply(test_Data, 1, std)
 
 #将Y的1-6修改为对应的activity
 dataset$V1[dataset$V1 == 1] <-"WALKING"
